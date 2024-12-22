@@ -7,7 +7,7 @@ use rerun::{demo_util::grid, external::glam, Points2D, Position2D};
 
 
 fn main() -> ! {
-    let rec = rerun::RecordingStreamBuilder::new("lidar_odom").spawn().unwrap();
+    let rec = rerun::RecordingStreamBuilder::new("lidar_odom").connect_tcp().unwrap();
 
 
     let ports = serialport::available_ports().expect("No ports found!");
@@ -28,8 +28,10 @@ fn main() -> ! {
         let scan = rplidar.grab_scan();
 
         if let Ok(scan) = scan {
-            let rr_points = scan_point_to_rerun(scan);
-            rec.log("scan_points", &rr_points).unwrap();
+            for point in scan {
+                println!("angle: {:?}", point.angle());
+                println!("distance: {:?}", point.distance()); 
+            }
         }
 
     }
@@ -38,5 +40,5 @@ fn main() -> ! {
 
 
 fn scan_point_to_rerun(points: Vec<ScanPoint>) -> Points2D {
-    Points2D::new(points.into_iter().map(|p| Position2D::new(p.angle().cos() * p.distance(), p.angle().sin() * p.distance())))
+    Points2D::new(points.into_iter().map(|p| Position2D::new(p.angle(), p.distance())))
 }
