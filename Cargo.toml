@@ -1,0 +1,9 @@
+[package]
+name = "lidar-odom"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rerun = "0.21.0"
+rplidar_drv = { git = "https://github.com/RandomStudio/rplidar.rs.git", version = "0.7.0" }
+serialport = "4.6.1"
