@@ -43,8 +43,8 @@ impl From<&Vec<ScanPoint>> for PointCloud {
             points
                 .into_iter()
                 .map(|p| Point2 {
-                    x: p.angle(),
-                    y: p.distance(),
+                    x: p.distance() * p.angle().cos(),
+                    y: p.distance() * p.angle().sin(),
                 })
                 .collect(),
         )
