@@ -20,9 +20,10 @@ async fn main() -> ! {
     }
 
     let port = serialport::new("/dev/ttyUSB0", 115_200)
-        .timeout(Duration::from_millis(10))
+        .timeout(Duration::from_millis(1000))
         .flow_control(serialport::FlowControl::None)
-
+        .stop_bits(serialport::StopBits::One)
+        .parity(serialport::Parity::None)
         .open().expect("Failed to open port");
 
     let mut rplidar = RplidarDevice::with_stream(port);
