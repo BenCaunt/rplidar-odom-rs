@@ -19,7 +19,7 @@ async fn main() -> ! {
         println!("{}", p.port_name);
     }
 
-    let port = serialport::new("/dev/tty.usbserial-0001", 115_200)
+    let port = serialport::new("/dev/ttyUSB0", 115_200)
         .timeout(Duration::from_millis(10))
         .open().expect("Failed to open port");
 
