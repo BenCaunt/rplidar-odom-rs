@@ -2858,12 +2858,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
-name = "hex-slice"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5491a308e0214554f07a81d8944abe45f552871c12e3c3c6e7e5d354039a6c4c"
-
-[[package]]
 name = "hexasphere"
 version = "14.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -7071,14 +7065,20 @@ checksum = "3cd14fd5e3b777a7422cca79358c57a8f6e3a703d9ac187448d0daf220c2407f"
 
 [[package]]
 name = "rplidar_drv"
-version = "0.7.0"
-source = "git+https://github.com/RandomStudio/rplidar.rs.git#ada9529ee2dad49ce04e97c407e8289e39f48830"
+version = "0.6.0"
+source = "git+https://github.com/RandomStudio/rplidar.rs.git?branch=update-min#2e3562fb336d8df65323cf2db1ed70ed8de9e043"
 dependencies = [
  "byteorder",
  "crc",
+ "rpos_drv",
+]
+
+[[package]]
+name = "rpos_drv"
+version = "0.2.0"
+source = "git+https://github.com/RandomStudio/rplidar.rs.git?branch=update-min#2e3562fb336d8df65323cf2db1ed70ed8de9e043"
+dependencies = [
  "failure",
- "hex-slice",
- "serialport",
 ]
 
 [[package]]

@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 nalgebra = "0.33.2"
 rerun = "0.21.0"
-rplidar_drv = { git = "https://github.com/RandomStudio/rplidar.rs.git", version = "0.7.0" }
+rplidar_drv = { git = "https://github.com/RandomStudio/rplidar.rs.git", branch = "update-min" }
 serde = { version = "1.0.216", features = ["derive"] }
 serde_json = "1.0.134"
 serialport = "4.6.1"
