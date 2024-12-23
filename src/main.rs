@@ -27,7 +27,9 @@ async fn main() -> ! {
         .open().expect("Failed to open port");
 
     let mut rplidar = RplidarDevice::with_stream(port);
+    rplidar.start_motor().unwrap();
     rplidar.start_scan().unwrap();
+
 
 
     loop {
