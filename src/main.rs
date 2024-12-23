@@ -28,7 +28,6 @@ async fn main() -> ! {
     let _ = port.write_data_terminal_ready(false).expect("Failed to set DTR");
 
     let mut rplidar = RplidarDevice::with_stream(port);
-    rplidar.start_motor().unwrap();
     rplidar.start_scan().unwrap();
 
 
