@@ -19,12 +19,13 @@ async fn main() -> ! {
         println!("{}", p.port_name);
     }
 
-    let port = serialport::new("/dev/ttyUSB0", 115_200)
+    let mut port = serialport::new("/dev/ttyUSB0", 115_200)
         .timeout(Duration::from_millis(1000))
         .flow_control(serialport::FlowControl::None)
         .stop_bits(serialport::StopBits::One)
         .parity(serialport::Parity::None)
         .open().expect("Failed to open port");
+    let _ = port.write_data_terminal_ready(false).expect("Failed to set DTR");
 
     let mut rplidar = RplidarDevice::with_stream(port);
     rplidar.start_motor().unwrap();
