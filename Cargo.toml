@@ -4,7 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+nalgebra = "0.33.2"
 rerun = "0.21.0"
 rplidar_drv = { git = "https://github.com/RandomStudio/rplidar.rs.git", version = "0.7.0" }
+serde = { version = "1.0.216", features = ["derive"] }
+serde_json = "1.0.134"
 serialport = "4.6.1"
-icp_2d = {git = "https://github.com/johannes-adr/icp_2d.git"}
+tokio = { version = "1.42.0", features = ["full"] }
+zenoh = "1.1.0"
